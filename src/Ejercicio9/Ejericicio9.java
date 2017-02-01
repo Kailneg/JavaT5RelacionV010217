@@ -20,7 +20,7 @@ public class Ejericicio9 {
 				break;
 			else {
 				index = texto.indexOf(palabra, index);
-				index++;
+				index += palabra.length();
 				totalOcurrencias++;
 			}
 
