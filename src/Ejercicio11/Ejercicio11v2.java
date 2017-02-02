@@ -1,6 +1,6 @@
 package Ejercicio11;
 
-public class Ejercicio11 {
+public class Ejercicio11v2 {
 
 	public static void main(String[] args) {
 
@@ -13,10 +13,21 @@ public class Ejercicio11 {
 	public static String MarcaSubCadena(String textoBase, String textoBuscar) {
 		textoBase = textoBase.toLowerCase();
 		textoBuscar = textoBuscar.toLowerCase();
+		int contador = 0;
 
-		char[] aux = textoBuscar.toCharArray();
-		aux[0] = '*';
+		do {
+			if (textoBase.indexOf(textoBuscar) == -1)
+				contador++;
+			else {
+				char[] aux = textoBase.toCharArray();
+				int posicionActual = textoBase.indexOf(textoBuscar);
+				aux[posicionActual] = '*';
+				textoBase = String.valueOf(aux);
+				contador = posicionActual + textoBuscar.length();
+			}
 
-		return textoBase.replaceAll(textoBuscar, String.valueOf(aux));
+		} while (contador < textoBase.length());
+
+		return textoBase;
 	}
 }
